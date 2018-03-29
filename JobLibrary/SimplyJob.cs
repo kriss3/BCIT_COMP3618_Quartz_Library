@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Quartz;
+using static System.Console;
 
 namespace JobLibrary
 {
@@ -10,7 +12,14 @@ namespace JobLibrary
         {
             return Task.Run(()=> 
             {
-                Console.WriteLine("Hello, JOb executed");
+                WriteLine($"Time now: {DateTime.Now}");
+                Thread.Sleep(2000);
+                WriteLine("Calling Service");
+                Thread.Sleep(2000);
+                WriteLine("Calling Data Access Layer");
+                Thread.Sleep(2000);
+                WriteLine("Cleaning/Deleting Data from table: <Customers>");
+                WriteLine("----------------------------------------------");
             }); 
         }
     }

@@ -27,7 +27,7 @@ namespace ConsAppQuartz
             //Trigger
             ITrigger jobTrigger = TriggerBuilder.Create()
                 .WithIdentity("trigger1", "group1")
-                .WithSimpleSchedule(x => x.WithIntervalInSeconds(5).RepeatForever())
+                .WithSimpleSchedule(x => x.WithIntervalInSeconds(10).RepeatForever())
                 .Build();
 
             //schedule
