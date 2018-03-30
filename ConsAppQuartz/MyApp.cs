@@ -9,16 +9,20 @@ namespace ConsAppQuartz
     {
         static void Main(string[] args)
         {
-            Run();
+            var testString = "Test string pass from the Client";
+            Run(testString);
             ReadLine();
         }
 
-        public static async void Run()
+        public static async void Run(string testValue)
         {
             //Construct scheduler factory;
             ISchedulerFactory schFactory = new StdSchedulerFactory();
 
+
+
             IScheduler scheduler = await schFactory.GetScheduler(new System.Threading.CancellationToken());
+            scheduler.Context.Put("key1", testValue);
             await scheduler.Start();
 
             //Job
